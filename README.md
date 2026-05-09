@@ -1,75 +1,68 @@
 # MDoS-Detection-Response --> https://mdos-detection-response.onrender.com
-This project demonstrates a cloud-based cybersecurity solution designed to detect and mitigate Memory Denial of Service (M‑DoS) attacks in real time. The system integrates AWS CloudWatch monitoring, Lambda automated response, and a Flask web dashboard to provide both technical defense and a user-friendly interface for visualization.
 
+# 🛡️ REAL-TIME MEMORY DOS DETECTION & AUTOMATED RESPONSE SYSTEM
 
-🛡️ Real-Time M‑DoS Detection & Automated Response
-✨ Project Summary
-A cloud-native cybersecurity solution that detects and mitigates Memory Denial of Service (M‑DoS) attacks in real time.
-It integrates AWS CloudWatch monitoring, Lambda automated defense, and a Flask dashboard for visualization.
-This project demonstrates practical skills in cloud computing, automation, and web development, while also showcasing professional documentation and reproducibility.
+[![Live Demo] --> (https://img.shields.io/badge/Demo-Live%20on%20Render-brightgreen)](https://mdos-detection-response.onrender.com)
 
-⚙️ Key Features
-Stress Tool Simulation → Generate artificial memory load for testing.
+This project demonstrates a cloud-based cybersecurity solution designed to detect and mitigate Memory Denial of Service (M‑DoS) attacks in real time. The system integrates AWS CloudWatch monitoring, Lambda automated response, and a Flask web dashboard for visualization.
 
-CloudWatch Agent → Collects memory metrics (mem_used_percent).
+## ✨ Project Summary
+A cloud-native cybersecurity solution that detects and mitigates M-DoS attacks. This project showcases practical skills in cloud computing, security automation, and web development.
 
-CloudWatch Alarms → Detects abnormal memory usage (>80%).
+## ⚙️ Key Features
+* **Stress Tool Simulation** → Generate artificial memory load for testing.
+* **CloudWatch Agent** → Collects memory metrics (`mem_used_percent`) from the EC2 instance.
+* **CloudWatch Alarms** → Automatically detects abnormal memory usage (>80%).
+* **AWS Lambda Function** → Triggered defense mechanism to stop the instance and log forensic data.
+* **S3 Bucket** → Secure storage for forensic logs and attack reports.
+* **Flask Dashboard** → A professional web interface to monitor system health and simulate attacks.
 
-AWS Lambda Function → Automated response to stop EC2 and log forensic data.
+## 📁 Repository Structure
+```text
+MDoS-Detection-Response/
+├── project_reference/
+│   ├── home.py              # Main Flask Application
+│   ├── templates/           # UI Components (dashboard.html)
+│   └── requirements.txt     # Python Dependencies
+├── Project_Report_MDoS.pdf  # Detailed Technical Documentation
+└── screenshots/             # Visual Proof of Implementation
 
-S3 Bucket → Stores forensic logs for analysis.
+🚀 Updated Setup Instructions Section:
+---
+## 🚀 Setup Instructions
 
-Flask Dashboard → Premium web interface for monitoring and attack simulation.
+### 1. Local Preview
+To run the dashboard interface on your local machine:
+```bash
+cd project_reference
+pip install -r requirements.txt
+python home.py
+Access the UI via browser at: http://127.0.0.1:5000
+
+2. AWS Implementation (M-DoS Defense)
+EC2 Deployment: The dashboard was successfully hosted on AWS EC2 at http://18.215.230.44:5000 during the simulation.
+
+Stress Installation: Use sudo apt install stress -y to simulate high load.
+
+CloudWatch Configuration: Installed the unified agent to track mem_used_percent.
+
+Automation: Set up a Lambda function using boto3 to automatically stop the instance when the memory alarm is triggered.
 
 🌐 Deployment Notes
-This project was implemented in the AWS Academy Sandbox, which provides a temporary cloud environment.
-⚠️ Important: All EC2 instances, CloudWatch alarms, and Lambda functions are deleted once the sandbox session ends.
+This project was originally implemented in the AWS Academy Sandbox.
+⚠️ Note: As the AWS sandbox environment is temporary, the backend cloud triggers are illustrative in this repo. The live Render Demo provides a permanent reference for the dashboard's design and functionality.
 
-To ensure the project remains professional and demonstrable, this repository includes:
+📸 Project Screenshots
 
-Flask Dashboard Code (src/app.py)
-
-Screenshots from EC2, CloudWatch, and Lambda
-
-Documentation explaining workflow and architecture
-
-When deployed in AWS EC2, the dashboard runs live at:
-
-Code
-http://<EC2-Public-IP>:5000
-Example (temporary): http://18.215.230.44:5000  
-Since the sandbox resets, this link may expire.
-👉 Permanent reference is provided via screenshots.
-
-📸 Screenshots
 Stress Tool Installation
 
 CloudWatch Alarm Trigger
 
 AWS Lambda Automated Response
 
-Flask Dashboard Interface
+Dashboard 
 
-🚀 Quick Rebuild Checklist
-Launch EC2 instance in AWS Academy Sandbox.
+Author: Monika B | Aspiring Software Professional | MCA Student | Cloud & Security Enthusiast | 2026
 
-Install CloudWatch Agent and configure memory metrics.
 
-Set CloudWatch Alarm at 80% memory usage.
 
-Deploy Lambda function with boto3 to stop EC2 + log to S3.
-
-Run Flask app (python3 app.py) on EC2 port 5000.
-
-Access dashboard via http://<EC2-Public-IP>:5000.
-
-🎯 Skills Demonstrated
-AWS Cloud Monitoring (EC2, CloudWatch, Lambda, S3)
-
-Python Automation (boto3, Flask)
-
-Web Dashboard Design (HTML, CSS, Charts)
-
-Cloud Security & Forensic Logging
-
-Professional Documentation & GitHub Portfolio Management
