@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>M-DoS Detection & Response System</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f8; margin: 0; }
+        header { background-color: #0b3d91; color: white; text-align: center; padding: 15px; font-size: 24px; }
+        .status-boxes { display: flex; justify-content: space-around; margin: 20px; }
+        .box { width: 30%; padding: 20px; color: white; border-radius: 8px; text-align: center; font-weight: bold; }
+        .green { background-color: #28a745; }
+        .orange { background-color: #ff9800; }
+        .red { background-color: #dc3545; }
+        .charts { display: flex; justify-content: space-around; margin: 20px; }
+        .chart { width: 45%; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+        .buttons { display: flex; justify-content: space-around; margin: 20px; }
+        button { padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+        .attack { background-color: #dc3545; color: white; }
+        .defence { background-color: #28a745; color: white; }
+    </style>
+</head>
+<body>
+    <header>M-DoS Detection & Response System</header>
+
+    <div class="status-boxes">
+        <div class="box green">System Status: {{ system_status }}</div>
+        <div class="box orange">Memory Usage: {{ memory_usage }}% - High Usage!</div>
+        <div class="box red">Alarm Status: {% if alarm_triggered %}M-DoS Alert Triggered!{% else %}OK{% endif %}</div>
+    </div>
+
+    <div class="charts">
+        <div class="chart">
+            <h3>Memory Usage</h3>
+            <img src="https://quickchart.io/chart?c={type:'line',data:{labels:['11:00','11:20','11:40','12:00','12:20'],datasets:[{label:'Memory Usage',data:[60,70,75,85,80],borderColor:'red',fill:false}]}}" width="100%">
+        </div>
+        <div class="chart">
+            <h3>CPU Utilization</h3>
+            <img src="https://quickchart.io/chart?c={type:'line',data:{labels:['11:00','11:20','11:40','12:00','12:20'],datasets:[{label:'CPU Usage',data:[20,25,22,30,28],borderColor:'blue',fill:false}]}}" width="100%">
+        </div>
+    </div>
+
+  <div class="buttons">
+    <form action="/simulate_attack">
+        <button class="attack">Start Stress Test</button>
+    </form>
+    <form action="/initiate_defence">
+        <button class="defence">Initiate Defence</button>
+    </form>
+</div>
+
+    
+</body>
+</html>
